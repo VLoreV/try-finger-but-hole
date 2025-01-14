@@ -1,6 +1,8 @@
-console.log("main.js, nigga");
-function nigga(messaggio) {
-    console.log(`ciao ${messaggio}`)
-}
+const lista = document.querySelector('#lista');
 
-nigga('mondo')
+const nuovoElemento = document.createElement('li');
+
+nuovoElemento.textContent = 'Nigga';
+
+console.log(nuovoElemento);
+lista.appendChild(nuovoElemento);
