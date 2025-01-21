@@ -21,5 +21,9 @@ const nuovoParagrafo = document.createElement('p');
 const testo = document.createTextNode('Chigga');
 nuovoParagrafo.appendChild(testo);
 
+nuovoParagrafo.textContent = 'Migga con textContent';
+
+nuovoParagrafo.innerHTML = '<strong>Jigga</strong>';
+
 const paragrafi = $$('p');
 console.log(paragrafi);
