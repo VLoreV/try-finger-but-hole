@@ -5,7 +5,7 @@ const $$ = document.querySelectorAll.bind(document);
 
 
 
-function test(){
+function test() {
     console.log('test');
 }
 
@@ -23,7 +23,56 @@ nuovoParagrafo.appendChild(testo);
 
 nuovoParagrafo.textContent = 'Migga con textContent';
 
-nuovoParagrafo.innerHTML = '<strong>Jigga</strong>';
+const mioTesto = 'sasa lele'
 
+
+const myDom = {
+    type: "div",
+    id: "container",
+    className: "container",
+    children: [
+        {
+            type: "h1",
+            children: [{ type: "text", value: "My DOM Framework" }],
+        },
+        {
+            type: "p",
+            children: [
+                {
+                    type: "text",
+                    children: [
+                        { type: "text", value: "This is a" },
+                        {
+                            type: "span",
+                            className: "bold",
+                            children: [{ type: "text", value: " DOM Framework" }],
+                        },
+                    ],
+                },
+            ],
+        },
+    ],
+};
+
+function render(dom, parent) {
+    const el = document.createElement(dom.type);
+    if (dom.id) el.id = dom.id;
+    if (dom.className) el.className = dom.className;
+    if (!dom.children) return parent.appendChild(el);
+    dom.children.forEach((child) => {
+        if (child.type === "text" && child.value) {
+            el.appendChild(document.createTextNode(child.value));
+        } else {
+            render(child, el);
+        }
+    });
+    parent.appendChild(el);
+}
+
+const rootElement = document.getElementById("root");
+render(myDom, rootElement);
+
+const parent = $('header');
+parent.appendChild(nuovoParagrafo);
 const paragrafi = $$('p');
 console.log(paragrafi);
