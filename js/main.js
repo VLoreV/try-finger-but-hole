@@ -1,8 +1,11 @@
-const lista = document.querySelector('#lista');
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
 
-const nuovoElemento = document.createElement('li');
+const paragrafo = document.querySelector('p');
 
-nuovoElemento.textContent = 'Nigga';
+paragrafo.classList.add('red');
 
-console.log(nuovoElemento);
-lista.appendChild(nuovoElemento);
+console.log(paragrafo);
+
+const paragrafi = document.querySelectorAll('p');
+console.log(paragrafi);
